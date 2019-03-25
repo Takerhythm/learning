@@ -12,9 +12,12 @@ def insert_sort(nums_list):
 
 def bucket_sort(nums):
     n = len(nums)
+    # 生成n个桶
     tmp_list = [[] for i in range(n)]
+    # 将元素均匀放在每个桶中
     for i in nums:
         tmp_list[int(i*n)].append(i)
+    # 对各桶元素进行插入排序
     for l in tmp_list:
         insert_sort(l)
     nums = [j for i in tmp_list for j in i]
